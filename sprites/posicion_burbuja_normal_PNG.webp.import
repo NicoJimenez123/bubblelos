@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmnap4d5yggg"
-path="res://.godot/imported/19627.jpg-6ee7556d054787c6749e45314acc5628.ctex"
+uid="uid://dcbj3hknl31t3"
+path="res://.godot/imported/posicion_burbuja_normal_PNG.webp-6b85d1afc9bd5172fded4c37cc56af53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://19627.jpg"
-dest_files=["res://.godot/imported/19627.jpg-6ee7556d054787c6749e45314acc5628.ctex"]
+source_file="res://sprites/posicion_burbuja_normal_PNG.webp"
+dest_files=["res://.godot/imported/posicion_burbuja_normal_PNG.webp-6b85d1afc9bd5172fded4c37cc56af53.ctex"]
 
 [params]
 
