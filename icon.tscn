@@ -1,0 +1,96 @@
+[gd_scene load_steps=19 format=3 uid="uid://b1rqqic2y67q4"]
+
+[ext_resource type="Script" path="res://nivel.gd" id="1_20c3v"]
+[ext_resource type="Script" path="res://jugador.gd" id="2_2fefo"]
+[ext_resource type="Texture2D" uid="uid://i13daxpf018p" path="res://Animaciones/Pez/bloggif_679037042e201-0.png" id="2_5bvro"]
+[ext_resource type="Texture2D" uid="uid://b0jekivs1xnst" path="res://Animaciones/Pez/bloggif_679037042e201-1.png" id="3_0h6de"]
+[ext_resource type="Texture2D" uid="uid://db7yl35745y5b" path="res://Animaciones/Pez/bloggif_679037042e201-2.png" id="4_8tldy"]
+[ext_resource type="Texture2D" uid="uid://vjs1obnv4fwb" path="res://Animaciones/Pez/bloggif_679037042e201-3.png" id="5_r2xh6"]
+[ext_resource type="Texture2D" uid="uid://d1iwkae1bs6i7" path="res://Animaciones/Pez/bloggif_679037042e201-4.png" id="6_dxf5f"]
+[ext_resource type="Texture2D" uid="uid://b7b7dnt0enwab" path="res://Animaciones/Pez/bloggif_679037042e201-5.png" id="7_yoa67"]
+[ext_resource type="Texture2D" uid="uid://bsbck00qqvkvw" path="res://Animaciones/Pez/bloggif_679037042e201-6.png" id="8_dnj86"]
+[ext_resource type="Texture2D" uid="uid://bttnoi6khesmi" path="res://Animaciones/Pez/bloggif_679037042e201-7.png" id="9_j7anh"]
+[ext_resource type="Texture2D" uid="uid://gg7tfhdlw3gq" path="res://Animaciones/Pez/bloggif_679037042e201-8.png" id="10_88ytb"]
+[ext_resource type="Texture2D" uid="uid://4fnbohc8otgd" path="res://Animaciones/Pez/bloggif_679037042e201-9.png" id="11_qf8of"]
+[ext_resource type="Texture2D" uid="uid://dn8k4c37r3uso" path="res://Animaciones/Pez/bloggif_679037042e201-10.png" id="12_r2hp2"]
+[ext_resource type="Texture2D" uid="uid://bi7uoa2af7e0v" path="res://Animaciones/Pez/bloggif_679037042e201-11.png" id="13_rd42e"]
+[ext_resource type="Texture2D" uid="uid://b62x86rx0snc2" path="res://Animaciones/Pez/bloggif_679037042e201-12.png" id="14_qrekn"]
+
+[sub_resource type="Animation" id="Animation_vosub"]
+resource_name = "animacion_jugador"
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cm3vv"]
+_data = {
+"animacion_jugador": SubResource("Animation_vosub")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4kag0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5bvro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0h6de")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8tldy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r2xh6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dxf5f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yoa67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dnj86")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_j7anh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_88ytb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qf8of")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_r2hp2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rd42e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qrekn")
+}],
+"loop": true,
+"name": &"burbuja",
+"speed": 12.0
+}]
+
+[node name="Nivel" type="Node2D"]
+position = Vector2(-7, 7)
+script = ExtResource("1_20c3v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cm3vv")
+}
+autoplay = "animacion_jugador"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(316, 483)
+scale = Vector2(2.82, 4.38625)
+sprite_frames = SubResource("SpriteFrames_4kag0")
+animation = &"burbuja"
+frame_progress = 0.987085
+script = ExtResource("2_2fefo")
+
+[node name="Bloggif679037042e201-0" type="Sprite2D" parent="."]
+position = Vector2(847, 466)
+scale = Vector2(8.16667, 7.82353)
+texture = ExtResource("2_5bvro")
