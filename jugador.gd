@@ -1,27 +1,26 @@
-extends AnimatedSprite2D
+extends Sprite2D
 
-var mensajes = preload('res://mensajes.gd').new()
+var burbuja = preload('res://burbujaEstirar.gd').new()
+const ESTADOS: Dictionary = {'estado1': 'posicion_burbuja_para_editar_PNG.webp', 'estado2': 'posicion_burbuja_normal_PNG.webp', 'estado3': 'posicion_burbuja_estirada_PNG.webp'}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(mensajes.msg())
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 func _input(event):
-	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT):
-		print(mensajes.msg())
 	if event is InputEventMouseMotion:
 		mover(event.position)
-	"""else:
-		if (event.button_index == MOUSE_BUTTON_LEFT):
-			print(position)
-			print(event.position)
-			estirar(event.position)
-	"""
-		
+	if Input.is_key_pressed(KEY_1):
+		self.texture = burbuja.cargarSprite(ESTADOS.estado1)
+	if Input.is_key_pressed(KEY_2):
+		self.texture = burbuja.cargarSprite(ESTADOS.estado2)
+	if Input.is_key_pressed(KEY_3):
+		self.texture = burbuja.cargarSprite(ESTADOS.estado3)
+	
 func estirar(pos):
 	var x = pos.x
 	var y = pos.y
