@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1rqqic2y67q4"]
+[gd_scene load_steps=9 format=3 uid="uid://b1rqqic2y67q4"]
 
 [ext_resource type="Script" path="res://nivel.gd" id="1_20c3v"]
 [ext_resource type="Script" path="res://jugador.gd" id="2_2fefo"]
 [ext_resource type="Script" path="res://barra_oxigeno.gd" id="4_vq5pf"]
-[ext_resource type="AudioStream" uid="uid://cdbd4ralivolb" path="res://Sonidos/Bluezone_BC0292_alien_tripod_texture_organic_liquid_005.wav" id="4_wrkxb"]
 [ext_resource type="Texture2D" uid="uid://dcbj3hknl31t3" path="res://sprites/posicion_burbuja_normal_PNG.webp" id="16_deiyk"]
 
 [sub_resource type="Animation" id="Animation_vosub"]
@@ -23,7 +22,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmske"]
-bg_color = Color(0.0672095, 0.343295, 0.145464, 1)
+bg_color = Color(0.0178901, 0.376303, 0.236184, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -43,9 +42,6 @@ autoplay = "animacion_jugador"
 position = Vector2(378, 318)
 texture = ExtResource("16_deiyk")
 script = ExtResource("2_2fefo")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_wrkxb")
 
 [node name="BarraOxigeno" type="ProgressBar" parent="."]
 anchors_preset = -1
