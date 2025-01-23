@@ -1,6 +1,7 @@
 extends Sprite2D
 
 @export var move_speed : float = 10.0
+@export var rotation_speed : float = 10.0
 
 var burbuja = preload('res://burbujaEstirar.gd').new()
 const ESTADOS: Dictionary = {
@@ -10,7 +11,6 @@ const ESTADOS: Dictionary = {
 	'estado4': 'posicion_burbuja_por_reventar_PNG.webp',
 	'estado5': 'posicion_burbuja_rota_PNG.webp',
 }
-
 
 # Define los rangos de distancia y los estados asociados
 const DISTANCE_RANGES: Array[Dictionary] = [
@@ -28,6 +28,7 @@ var click_start_position = Vector2()
 var current_impulse = Vector2()
 var current_velocity = Vector2()
 var bubble_start_position = Vector2() #Posición inicial de la burbuja.
+var last_rotation : float = 0.0 #Variable para guardar la rotación.
 
 func _ready() -> void:
 	#Fijamos la escala por defecto.
@@ -37,13 +38,24 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Aplica el impulso a la posición de la burbuja
 	position += current_velocity * delta
+	
+	# Obtener el ángulo de rotación desde el vector de velocidad
+	var target_angle = current_velocity.angle()
+	
+	#Aplicamos un offset para que la rotación sea correcta.
+	var offset_angle = PI/2
+	
+	#Interpolamos el ángulo
+	rotation = lerp(last_rotation, target_angle + offset_angle, rotation_speed * delta)
+	
 	current_velocity = current_velocity * 0.9
 	var distance = (position - bubble_start_position).length()
 	print("Distancia de desplazamiento de la burbuja : ",distance)
 	if abs(current_velocity.x) < 0.1 and abs(current_velocity.y) < 0.1: # Si la velocidad es menor a 0.1
 		current_velocity = Vector2.ZERO #Detenemos la burbuja
 		bubble_start_position = position
-		#Calculamos el estado del sprite segun la distancia recorrida.
+		last_rotation = rotation #Guardamos la rotación cuando se detiene.
+	#Calculamos el estado del sprite segun la distancia recorrida.
 	var new_state = get_state_for_distance(distance)
 	#CAMBIO IMPORTANTE: ASIGNAMOS LA TEXTURA AL SPRITE
 	self.texture = burbuja.cargarSprite(ESTADOS[new_state])
@@ -62,10 +74,15 @@ func _input(event):
 			clickeando = false
 			var current_mouse_position = get_global_mouse_position()
 			var impulse_vector = current_mouse_position - click_start_position
+			
+			 #Calculamos el ángulo inicial para que la burbuja "apunte" al ratón.
+			var initial_angle = impulse_vector.angle() + PI/2;
+			
+			last_rotation = initial_angle; #Inicializamos el valor de la variable.
+			rotation = last_rotation; # Inicializamos la rotación con el último valor de rotación
+			
 			current_velocity = impulse_vector * move_speed
-	
-	#self.texture = burbuja.cargarSprite(ESTADOS.estado1)
-
+		
 func get_state_for_distance(distance: float) -> String:
 	for range in DISTANCE_RANGES:
 		if distance <= range.max_distance:
