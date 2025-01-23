@@ -91,11 +91,8 @@ func get_state_for_distance(distance: float) -> String:
 		if distance <= range.max_distance:
 			return range.state
 	return "estado5"  # Por si algo falla, aplicamos el último estado
-	
 
-
-func _on_burbuja_area_entered(area: Area2D) -> void:
-	if area.is_in_group("enemigos"):
-		self.texture = burbuja.cargarSprite(ESTADOS['estado5'])
-		await get_tree().create_timer(2.0).timeout
-		queue_free()  # Eliminar la burbuja
+func _on_enemigo_area_area_entered(area: Area2D) -> void:
+	self.texture = burbuja.cargarSprite(ESTADOS['estado5'])
+	await get_tree().create_timer(2.0).timeout
+	queue_free()  # Eliminar la burbuja

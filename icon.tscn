@@ -93,4 +93,4 @@ shape = SubResource("RectangleShape2D_ox1un")
 debug_color = Color(0.78175, 0.435474, 0.026181, 0.42)
 
 [connection signal="area_entered" from="Burbuja/BurbujaArea" to="Burbuja" method="_on_burbuja_area_area_entered"]
-[connection signal="area_entered" from="Enemigo/EnemigoArea" to="." method="_on_enemigo_area_area_entered"]
+[connection signal="area_entered" from="Enemigo/EnemigoArea" to="Burbuja" method="_on_enemigo_area_area_entered"]

@@ -28,3 +28,4 @@ func reproducir() -> void:
 
 func pararSonido() -> void:
 	$AudioStreamPlayer.stop()
+	
