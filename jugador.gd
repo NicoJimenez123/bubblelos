@@ -53,7 +53,6 @@ func _physics_process(delta: float) -> void:
 	
 	current_velocity = current_velocity * 0.9
 	var distance = (position - bubble_start_position).length()
-	print("Distancia de desplazamiento de la burbuja : ",distance)
 	if abs(current_velocity.x) < 0.1 and abs(current_velocity.y) < 0.1: # Si la velocidad es menor a 0.1
 		current_velocity = Vector2.ZERO #Detenemos la burbuja
 		bubble_start_position = position
