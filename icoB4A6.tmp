@@ -22,7 +22,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmske"]
-bg_color = Color(0.0672095, 0.343295, 0.145464, 1)
+bg_color = Color(0.0178901, 0.376303, 0.236184, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
