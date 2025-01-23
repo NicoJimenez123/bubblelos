@@ -11,10 +11,23 @@ const ESTADOS: Dictionary = {
 	'estado5': 'posicion_burbuja_rota_PNG.webp',
 }
 
+
+# Define los rangos de distancia y los estados asociados
+const DISTANCE_RANGES: Array[Dictionary] = [
+	{ "max_distance": 100, "state": "estado1" },
+	{ "max_distance": 400, "state": "estado2" },
+	{ "max_distance": 500, "state": "estado3" },
+	{ "max_distance": 700, "state": "estado4" },
+	{ "max_distance": 100000000000, "state": "estado5" }, #Valor máximo, el último sprite.
+]
+
+var current_state: String = "estado1" #CAMBIADO A ESTADO 1
+
 var clickeando = false
 var click_start_position = Vector2()
 var current_impulse = Vector2()
 var current_velocity = Vector2()
+var bubble_start_position = Vector2() #Posición inicial de la burbuja.
 
 func _ready() -> void:
 	#Fijamos la escala por defecto.
@@ -25,9 +38,15 @@ func _physics_process(delta: float) -> void:
 	# Aplica el impulso a la posición de la burbuja
 	position += current_velocity * delta
 	current_velocity = current_velocity * 0.9
+	var distance = (position - bubble_start_position).length()
+	print("Distancia de desplazamiento de la burbuja : ",distance)
 	if abs(current_velocity.x) < 0.1 and abs(current_velocity.y) < 0.1: # Si la velocidad es menor a 0.1
 		current_velocity = Vector2.ZERO #Detenemos la burbuja
-
+		bubble_start_position = position
+		#Calculamos el estado del sprite segun la distancia recorrida.
+	var new_state = get_state_for_distance(distance)
+	#CAMBIO IMPORTANTE: ASIGNAMOS LA TEXTURA AL SPRITE
+	self.texture = burbuja.cargarSprite(ESTADOS[new_state])
 
 func _input(event):
 	if Input.is_key_pressed(KEY_R):
@@ -44,3 +63,11 @@ func _input(event):
 			var current_mouse_position = get_global_mouse_position()
 			var impulse_vector = current_mouse_position - click_start_position
 			current_velocity = impulse_vector * move_speed
+	
+	#self.texture = burbuja.cargarSprite(ESTADOS.estado1)
+
+func get_state_for_distance(distance: float) -> String:
+	for range in DISTANCE_RANGES:
+		if distance <= range.max_distance:
+			return range.state
+	return "estado5"  # Por si algo falla, aplicamos el último estado
