@@ -30,7 +30,10 @@ var current_velocity = Vector2()
 var bubble_start_position = Vector2() #Posición inicial de la burbuja.
 var last_rotation : float = 0.0 #Variable para guardar la rotación.
 
+@onready var burbuja_area = $BurbujaArea
+
 func _ready() -> void:
+	burbuja_area.connect("area_entered", Callable(self, "_on_burbuja_area_entered"))
 	#Fijamos la escala por defecto.
 	scale = Vector2(1,1)
 	pass
@@ -88,3 +91,11 @@ func get_state_for_distance(distance: float) -> String:
 		if distance <= range.max_distance:
 			return range.state
 	return "estado5"  # Por si algo falla, aplicamos el último estado
+	
+
+
+func _on_burbuja_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemigos"):
+		self.texture = burbuja.cargarSprite(ESTADOS['estado5'])
+		await get_tree().create_timer(2.0).timeout
+		queue_free()  # Eliminar la burbuja

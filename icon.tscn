@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1rqqic2y67q4"]
+[gd_scene load_steps=14 format=3 uid="uid://b1rqqic2y67q4"]
 
 [ext_resource type="Script" path="res://nivel.gd" id="1_20c3v"]
 [ext_resource type="Script" path="res://jugador.gd" id="2_2fefo"]
 [ext_resource type="Script" path="res://barra_oxigeno.gd" id="4_vq5pf"]
 [ext_resource type="AudioStream" uid="uid://cdbd4ralivolb" path="res://Sonidos/Bluezone_BC0292_alien_tripod_texture_organic_liquid_005.wav" id="4_wrkxb"]
+[ext_resource type="Texture2D" uid="uid://cf175m2e8wje6" path="res://sprites/enemy_test.PNG" id="6_n0dru"]
+[ext_resource type="Script" path="res://enemigo.gd" id="7_1601l"]
 [ext_resource type="Texture2D" uid="uid://dcbj3hknl31t3" path="res://sprites/posicion_burbuja_normal_PNG.webp" id="16_deiyk"]
 
 [sub_resource type="Animation" id="Animation_vosub"]
@@ -14,6 +16,9 @@ loop_mode = 1
 _data = {
 "animacion_jugador": SubResource("Animation_vosub")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6raf3"]
+radius = 125.3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_581gq"]
 bg_color = Color(0.150258, 0.189192, 0.225234, 0.403922)
@@ -28,6 +33,9 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox1un"]
+size = Vector2(434.88, 395.236)
 
 [node name="Nivel" type="Node2D"]
 position = Vector2(-7, 7)
@@ -44,6 +52,14 @@ position = Vector2(378, 318)
 texture = ExtResource("16_deiyk")
 script = ExtResource("2_2fefo")
 
+[node name="BurbujaArea" type="Area2D" parent="Burbuja"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Burbuja/BurbujaArea"]
+position = Vector2(-2, -31)
+shape = SubResource("CircleShape2D_6raf3")
+debug_color = Color(0.839185, 0.384421, 0, 0.42)
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_wrkxb")
 
@@ -59,3 +75,22 @@ theme_override_styles/background = SubResource("StyleBoxFlat_581gq")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jmske")
 value = 100.0
 script = ExtResource("4_vq5pf")
+
+[node name="Enemigo" type="Sprite2D" parent="."]
+position = Vector2(881, 285)
+scale = Vector2(0.347222, 0.361809)
+texture = ExtResource("6_n0dru")
+script = ExtResource("7_1601l")
+
+[node name="EnemigoArea" type="Area2D" parent="Enemigo"]
+position = Vector2(-53, -96)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo/EnemigoArea"]
+position = Vector2(51.5603, 97.382)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ox1un")
+debug_color = Color(0.78175, 0.435474, 0.026181, 0.42)
+
+[connection signal="area_entered" from="Burbuja/BurbujaArea" to="Burbuja" method="_on_burbuja_area_area_entered"]
+[connection signal="area_entered" from="Enemigo/EnemigoArea" to="." method="_on_enemigo_area_area_entered"]
