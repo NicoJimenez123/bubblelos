@@ -94,5 +94,5 @@ func get_state_for_distance(distance: float) -> String:
 
 func _on_enemigo_area_area_entered(area: Area2D) -> void:
 	self.texture = burbuja.cargarSprite(ESTADOS['estado5'])
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(0.2).timeout
 	queue_free()  # Eliminar la burbuja
