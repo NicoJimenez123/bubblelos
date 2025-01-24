@@ -47,6 +47,8 @@ func _physics_process(delta: float) -> void:
 	
 	#Aplicamos un offset para que la rotación sea correcta.
 	var offset_angle = PI/2
+	print(GlobalState.progress_bar_value)
+	
 	
 	#Interpolamos el ángulo
 	rotation = lerp(last_rotation, target_angle + offset_angle, rotation_speed * delta)

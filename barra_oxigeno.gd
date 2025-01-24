@@ -1,6 +1,6 @@
 extends ProgressBar
 
-var maxValor: int = 100
+var maxValor: int = GlobalState.progress_bar_value
 var disminucionOxigeno: int = 5
 var tiempoTranscurrido: float = 0.0
 
@@ -8,10 +8,11 @@ func _ready() -> void:
 	
 	max_value = maxValor
 	value = maxValor
-	
+		
 func _process(delta: float) -> void:
 	
 	tiempoTranscurrido += delta
+	GlobalState.progress_bar_value = value
 	
 	if tiempoTranscurrido >= 1.0:
 		DisminuirOxigeno()
