@@ -39,6 +39,7 @@ size = Vector2(434.88, 395.236)
 
 [node name="Nivel" type="Node2D"]
 position = Vector2(-7, 7)
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_20c3v")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -56,7 +57,7 @@ script = ExtResource("2_2fefo")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Burbuja/BurbujaArea"]
-position = Vector2(-2, -31)
+position = Vector2(0, -28)
 shape = SubResource("CircleShape2D_6raf3")
 debug_color = Color(0.839185, 0.384421, 0, 0.42)
 
@@ -67,17 +68,17 @@ stream = ExtResource("4_wrkxb")
 anchors_preset = -1
 anchor_left = -0.082
 anchor_right = -0.082
-offset_left = 897.0
-offset_top = 18.0
-offset_right = 1098.0
-offset_bottom = 51.0
+offset_left = 1810.0
+offset_top = 16.0
+offset_right = 2289.0
+offset_bottom = 130.0
 theme_override_styles/background = SubResource("StyleBoxFlat_581gq")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jmske")
 value = 100.0
 script = ExtResource("4_vq5pf")
 
 [node name="Enemigo" type="Sprite2D" parent="."]
-position = Vector2(881, 285)
+position = Vector2(1854, 1188)
 scale = Vector2(0.347222, 0.361809)
 texture = ExtResource("6_n0dru")
 script = ExtResource("7_1601l")
@@ -88,9 +89,44 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo/EnemigoArea"]
 position = Vector2(51.5603, 97.382)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ox1un")
 debug_color = Color(0.78175, 0.435474, 0.026181, 0.42)
 
+[node name="Enemigo2" type="Sprite2D" parent="."]
+position = Vector2(2218, 1182)
+scale = Vector2(0.347222, 0.361809)
+texture = ExtResource("6_n0dru")
+script = ExtResource("7_1601l")
+
+[node name="EnemigoArea" type="Area2D" parent="Enemigo2"]
+position = Vector2(-53, -96)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo2/EnemigoArea"]
+position = Vector2(41.4799, 101.528)
+shape = SubResource("RectangleShape2D_ox1un")
+debug_color = Color(0.78175, 0.435474, 0.026181, 0.42)
+
+[node name="Enemigo3" type="Sprite2D" parent="."]
+position = Vector2(2040, 1186)
+scale = Vector2(0.347222, 0.361809)
+texture = ExtResource("6_n0dru")
+script = ExtResource("7_1601l")
+
+[node name="EnemigoArea" type="Area2D" parent="Enemigo3"]
+position = Vector2(-53, -96)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo3/EnemigoArea"]
+position = Vector2(53, 96)
+shape = SubResource("RectangleShape2D_ox1un")
+debug_color = Color(0.78175, 0.435474, 0.026181, 0.42)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Node2" type="Node" parent="."]
+
 [connection signal="area_entered" from="Burbuja/BurbujaArea" to="Burbuja" method="_on_burbuja_area_area_entered"]
 [connection signal="area_entered" from="Enemigo/EnemigoArea" to="Burbuja" method="_on_enemigo_area_area_entered"]
+[connection signal="area_entered" from="Enemigo2/EnemigoArea" to="Burbuja" method="_on_enemigo_area_area_entered"]
+[connection signal="area_entered" from="Enemigo3/EnemigoArea" to="Burbuja" method="_on_enemigo_area_area_entered"]
