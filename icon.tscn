@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://b1rqqic2y67q4"]
+[gd_scene load_steps=81 format=3 uid="uid://b1rqqic2y67q4"]
 
 [ext_resource type="Script" path="res://nivel.gd" id="1_20c3v"]
 [ext_resource type="Script" path="res://jugador.gd" id="2_2fefo"]
@@ -206,9 +206,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wocgx"]
-size = Vector2(1520.42, 872.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2p1ct"]
 size = Vector2(1445.76, 257.709)
 
@@ -384,17 +381,6 @@ autoplay = "default"
 frame_progress = 0.0423441
 script = ExtResource("40_dn4l8")
 
-[node name="ConoDeVision" type="Area2D" parent="EnemigoAtacante1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemigoAtacante1/ConoDeVision"]
-position = Vector2(-793.333, -140)
-shape = SubResource("RectangleShape2D_wocgx")
-
-[node name="PlantaCoral" type="Sprite2D" parent="EnemigoAtacante1/ConoDeVision"]
-position = Vector2(1020, 2020)
-scale = Vector2(12.2922, 8.80133)
-texture = ExtResource("39_itdtl")
-
 [node name="EnemigoArea" type="Area2D" parent="EnemigoAtacante1"]
 position = Vector2(-23.0402, 16.5833)
 collision_layer = 2
@@ -409,6 +395,11 @@ sprite_frames = SubResource("SpriteFrames_w4idu")
 autoplay = "default"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pez Azul"]
+
+[node name="PlantaCoral" type="Sprite2D" parent="."]
+position = Vector2(2152, 1038)
+scale = Vector2(3.68765, 2.6404)
+texture = ExtResource("39_itdtl")
 
 [connection signal="area_entered" from="Burbuja/BurbujaArea" to="Burbuja" method="_on_burbuja_area_area_entered"]
 [connection signal="area_entered" from="AnimatedSprite2D/EnemigoArea" to="Burbuja" method="_on_enemigo_area_area_entered"]
