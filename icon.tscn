@@ -1,11 +1,9 @@
-[gd_scene load_steps=41 format=3 uid="uid://b1rqqic2y67q4"]
+[gd_scene load_steps=49 format=3 uid="uid://b1rqqic2y67q4"]
 
 [ext_resource type="Script" path="res://nivel.gd" id="1_20c3v"]
 [ext_resource type="Script" path="res://jugador.gd" id="2_2fefo"]
 [ext_resource type="Script" path="res://barra_oxigeno.gd" id="4_vq5pf"]
 [ext_resource type="AudioStream" uid="uid://cdbd4ralivolb" path="res://Sonidos/Bluezone_BC0292_alien_tripod_texture_organic_liquid_005.wav" id="4_wrkxb"]
-[ext_resource type="Texture2D" uid="uid://cf175m2e8wje6" path="res://sprites/enemy_test.PNG" id="6_n0dru"]
-[ext_resource type="Script" path="res://enemigo.gd" id="7_1601l"]
 [ext_resource type="Texture2D" uid="uid://0e485i1o2mli" path="res://sprites/fondo nivel medio camino.png" id="8_65c0e"]
 [ext_resource type="Texture2D" uid="uid://cwad6d32ubomn" path="res://Animaciones/pez verde _000/pez verde _000.png" id="9_sc6dw"]
 [ext_resource type="Texture2D" uid="uid://6a2m0i5xirxt" path="res://Animaciones/pez verde _000/pez verde _001.png" id="10_p3k5l"]
@@ -33,6 +31,13 @@
 [ext_resource type="Texture2D" uid="uid://dqno7qmhnwyh3" path="res://Animaciones/pez verde _000/pez verde _022.png" id="31_gq6tn"]
 [ext_resource type="Texture2D" uid="uid://25xaafqxkiti" path="res://Animaciones/pez verde _000/pez verde _023.png" id="32_cwdb0"]
 [ext_resource type="Script" path="res://peces.gd" id="33_oi0nw"]
+[ext_resource type="Texture2D" uid="uid://b0mywfj0n5swd" path="res://Animaciones/imagen monstruo chico/MONSTRO-CHICO.png" id="34_1l42i"]
+[ext_resource type="Texture2D" uid="uid://buqn7fenwfu3i" path="res://Animaciones/imagen monstruo chico/RECOVER_RECUP_monstruo-2.png" id="35_w1k84"]
+[ext_resource type="Texture2D" uid="uid://o2bn7oh1pva2" path="res://Animaciones/imagen monstruo chico/RECOVER_RECUP_monstruo-3.png" id="36_f1g6w"]
+[ext_resource type="Texture2D" uid="uid://b8k12b71v8yav" path="res://Animaciones/imagen monstruo chico/RECOVER_RECUP_monstruo-4.png" id="37_yah3h"]
+[ext_resource type="Texture2D" uid="uid://c7tcf0c6372v3" path="res://Animaciones/imagen monstruo chico/RECOVER_RECUP_monstruo-6.png" id="38_lueor"]
+[ext_resource type="Texture2D" uid="uid://bdiekql0eepx7" path="res://Animaciones/imagen monstruo chico/RECOVER_RECUP_monstruo.png" id="39_f8gxr"]
+[ext_resource type="Script" path="res://enemigo_atacante.gd" id="40_dn4l8"]
 
 [sub_resource type="Animation" id="Animation_vosub"]
 resource_name = "animacion_jugador"
@@ -59,9 +64,6 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox1un"]
-size = Vector2(223, 126)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dwbxp"]
 animations = [{
@@ -143,6 +145,41 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox1un"]
+size = Vector2(228.14, 125.188)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n8y8x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_1l42i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_w1k84")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_f1g6w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_yah3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_lueor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_f8gxr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wocgx"]
+size = Vector2(3014.17, 872.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2p1ct"]
+size = Vector2(1445.76, 257.709)
+
 [node name="Nivel" type="Node2D"]
 position = Vector2(-7, 7)
 scale = Vector2(0.5, 0.5)
@@ -183,51 +220,6 @@ script = ExtResource("4_vq5pf")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_wrkxb")
 
-[node name="Enemigo" type="Sprite2D" parent="."]
-position = Vector2(1854, 1188)
-scale = Vector2(0.347222, 0.361809)
-texture = ExtResource("6_n0dru")
-script = ExtResource("7_1601l")
-
-[node name="EnemigoArea" type="Area2D" parent="Enemigo"]
-position = Vector2(-53, -96)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo/EnemigoArea"]
-position = Vector2(51.5603, 97.382)
-shape = SubResource("RectangleShape2D_ox1un")
-debug_color = Color(0.78175, 0.435474, 0.026181, 0.42)
-
-[node name="Enemigo2" type="Sprite2D" parent="."]
-position = Vector2(2218, 1182)
-scale = Vector2(0.347222, 0.361809)
-texture = ExtResource("6_n0dru")
-script = ExtResource("7_1601l")
-
-[node name="EnemigoArea" type="Area2D" parent="Enemigo2"]
-position = Vector2(-53, -96)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo2/EnemigoArea"]
-position = Vector2(41.4799, 101.528)
-shape = SubResource("RectangleShape2D_ox1un")
-debug_color = Color(0.78175, 0.435474, 0.026181, 0.42)
-
-[node name="Enemigo3" type="Sprite2D" parent="."]
-position = Vector2(2040, 1186)
-scale = Vector2(0.347222, 0.361809)
-texture = ExtResource("6_n0dru")
-script = ExtResource("7_1601l")
-
-[node name="EnemigoArea" type="Area2D" parent="Enemigo3"]
-position = Vector2(-53, -96)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo3/EnemigoArea"]
-position = Vector2(53, 96)
-shape = SubResource("RectangleShape2D_ox1un")
-debug_color = Color(0.78175, 0.435474, 0.026181, 0.42)
-
 [node name="FondoNivelMedioCamino" type="Sprite2D" parent="."]
 z_index = -4096
 position = Vector2(1160, 648)
@@ -249,10 +241,30 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/EnemigoArea"]
 position = Vector2(93.5, 101)
 shape = SubResource("RectangleShape2D_ox1un")
-debug_color = Color(0.78175, 0.435474, 0.026181, 0.42)
+debug_color = Color(0.639586, 0.524487, 0.0529382, 0.42)
+
+[node name="EnemigoAtacante1" type="AnimatedSprite2D" parent="."]
+position = Vector2(1846, 432)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_n8y8x")
+autoplay = "default"
+frame_progress = 0.0423441
+script = ExtResource("40_dn4l8")
+
+[node name="ConoDeVision" type="Area2D" parent="EnemigoAtacante1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemigoAtacante1/ConoDeVision"]
+position = Vector2(-480, -40.0001)
+shape = SubResource("RectangleShape2D_wocgx")
+
+[node name="EnemigoArea" type="Area2D" parent="EnemigoAtacante1"]
+position = Vector2(-23.0402, 16.5833)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemigoAtacante1/EnemigoArea"]
+position = Vector2(216.374, -14.3958)
+shape = SubResource("RectangleShape2D_2p1ct")
 
 [connection signal="area_entered" from="Burbuja/BurbujaArea" to="Burbuja" method="_on_burbuja_area_area_entered"]
-[connection signal="area_entered" from="Enemigo/EnemigoArea" to="Burbuja" method="_on_enemigo_area_area_entered"]
-[connection signal="area_entered" from="Enemigo2/EnemigoArea" to="Burbuja" method="_on_enemigo_area_area_entered"]
-[connection signal="area_entered" from="Enemigo3/EnemigoArea" to="Burbuja" method="_on_enemigo_area_area_entered"]
 [connection signal="area_entered" from="AnimatedSprite2D/EnemigoArea" to="Burbuja" method="_on_enemigo_area_area_entered"]
+[connection signal="area_entered" from="EnemigoAtacante1/EnemigoArea" to="Burbuja" method="_on_enemigo_area_area_entered"]

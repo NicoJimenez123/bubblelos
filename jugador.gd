@@ -33,6 +33,7 @@ var last_rotation : float = 0.0 #Variable para guardar la rotación.
 @onready var burbuja_area = $BurbujaArea
 
 func _ready() -> void:
+	add_to_group('burbuja')
 	burbuja_area.connect("area_entered", Callable(self, "_on_burbuja_area_entered"))
 	#Fijamos la escala por defecto.
 	scale = Vector2(1,1)
