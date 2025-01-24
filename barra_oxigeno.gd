@@ -12,7 +12,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	tiempoTranscurrido += delta
-	
+		
 	if tiempoTranscurrido >= 1.0:
 		DisminuirOxigeno()
 		tiempoTranscurrido = 0.0
@@ -42,3 +42,8 @@ func actualiza_color(value):
 			color = Color(1, 0, 0)
 		
 		fill_style.bg_color = color
+
+
+func SetOxigenoACero():
+	value = 0
+	actualiza_color(value)  # Actualiza el color si es necesario

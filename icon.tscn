@@ -51,6 +51,9 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_6raf3"]
 radius = 125.3
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox1un"]
+size = Vector2(434.88, 395.236)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_581gq"]
 bg_color = Color(0.150258, 0.189192, 0.225234, 0.403922)
 corner_radius_top_left = 10
