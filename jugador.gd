@@ -31,7 +31,7 @@ var bubble_start_position = Vector2() #Posición inicial de la burbuja.
 var last_rotation : float = 0.0 #Variable para guardar la rotación.
 
 @onready var burbuja_area = $BurbujaArea
-@onready var barra_oxigeno = get_node("/root/Nivel/CanvasLayer/BarraOxigeno")
+@onready var barra_oxigeno = $BarraOxigeno
 
 func _ready() -> void:
 	add_to_group('burbuja')
@@ -94,6 +94,7 @@ func get_state_for_distance(distance: float) -> String:
 	return "estado5"  # Por si algo falla, aplicamos el último estado
 
 func _on_enemigo_area_area_entered(area: Area2D) -> void:
+	print("Enemigo entró en el area: ", area)
 	self.texture = burbuja.cargarSprite(ESTADOS['estado5'])
 	await get_tree().create_timer(0.2).timeout
 	queue_free()  # Eliminar la burbuja
