@@ -4,6 +4,7 @@ extends AnimatedSprite2D
 @onready var area_de_vision = $Area2D
 
 var objetivo = null # Variable para almacenar el objetivo detectado
+var moviendo = true
 
 func _ready():
 	add_to_group("enemigos") # Asegurate de que el enemigo esté en el grupo "enemigos"
@@ -11,6 +12,8 @@ func _ready():
 	#area_de_vision.connect("body_exited", Callable(self, "_on_body_exited"))
 
 func _process(delta):
+	if moviendo:
+		position.y -= velocidad * delta
 	if objetivo != null:
 		print(objetivo)
 		# Calcula la dirección hacia el objetivo
@@ -30,3 +33,10 @@ func _on_body_exited(body):
 	# Si el objetivo sale del área de visión, lo establece como nulo
 	if body == objetivo:
 		objetivo = null
+
+func reiniciar() -> void:
+	position.y = 1092
+	moviendo = true
+
+func frenar():
+	moviendo = false

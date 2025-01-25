@@ -356,7 +356,7 @@ corner_radius_bottom_left = 10
 size = Vector2(212, 734)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5fqi"]
-size = Vector2(1406, 226)
+size = Vector2(1406, 204)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmqdo"]
 size = Vector2(267, 217)
@@ -614,7 +614,7 @@ debug_color = Color(0.721095, 0.248277, 1, 0.42)
 [node name="AreaRocas2" type="Area2D" parent="Node2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/AreaRocas2"]
-position = Vector2(1263, 1137)
+position = Vector2(1263, 1148)
 shape = SubResource("RectangleShape2D_w5fqi")
 debug_color = Color(0.88593, 0.000297256, 0.806317, 0.42)
 
