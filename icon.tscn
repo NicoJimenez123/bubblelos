@@ -20,9 +20,6 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_6raf3"]
 radius = 125.3
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox1un"]
-size = Vector2(434.88, 395.236)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_581gq"]
 bg_color = Color(0.150258, 0.189192, 0.225234, 0.403922)
 corner_radius_top_left = 10
@@ -36,6 +33,9 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox1un"]
+size = Vector2(434.88, 395.236)
 
 [node name="Nivel" type="Node2D"]
 position = Vector2(-7, 7)
@@ -125,6 +125,31 @@ debug_color = Color(0.78175, 0.435474, 0.026181, 0.42)
 [node name="Node" type="Node" parent="."]
 
 [node name="Node2" type="Node" parent="."]
+
+[node name="GameOverBackground" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 14.0
+offset_top = -6.0
+offset_right = 2346.0
+offset_bottom = 1294.0
+
+[node name="ColorRect" type="ColorRect" parent="GameOverBackground"]
+layout_mode = 0
+offset_right = 2312.0
+offset_bottom = 1280.0
+color = Color(0, 0, 0, 0.458824)
+
+[node name="Label" type="Label" parent="GameOverBackground"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 156.0
+offset_right = 488.0
+offset_bottom = 326.0
+scale = Vector2(5.82881, 5.89306)
+text = "    GAME OVER  =("
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="Burbuja/BurbujaArea" to="Burbuja" method="_on_burbuja_area_area_entered"]
 [connection signal="area_entered" from="Enemigo/EnemigoArea" to="Burbuja" method="_on_enemigo_area_area_entered"]

@@ -12,6 +12,8 @@ const ESTADOS: Dictionary = {
 	'estado5': 'posicion_burbuja_rota_PNG.webp',
 }
 
+signal player_died
+
 # Define los rangos de distancia y los estados asociados
 const DISTANCE_RANGES: Array[Dictionary] = [
 	{ "max_distance": 100, "state": "estado1" },
@@ -31,7 +33,7 @@ var bubble_start_position = Vector2() #Posición inicial de la burbuja.
 var last_rotation : float = 0.0 #Variable para guardar la rotación.
 
 @onready var burbuja_area = $BurbujaArea
-@onready var barra_oxigeno = get_node("/root/Nivel/CanvasLayer/BarraOxigeno")
+@onready var barra_oxigeno = get_node("/root/Nivel/BarraOxigeno")
 
 func _ready() -> void:
 	burbuja_area.connect("area_entered", Callable(self, "_on_burbuja_area_entered"))
@@ -97,3 +99,4 @@ func _on_enemigo_area_area_entered(area: Area2D) -> void:
 	await get_tree().create_timer(0.2).timeout
 	queue_free()  # Eliminar la burbuja
 	barra_oxigeno.SetOxigenoACero()
+	emit_signal("player_died")

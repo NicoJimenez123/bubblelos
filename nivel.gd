@@ -1,8 +1,13 @@
 extends Node2D
 
+@onready var game_over = get_node("/root/Nivel/GameOverBackground")
+@onready var game_over_label = get_node("/root/Nivel/GameOverBackground/Label")
+@onready var jugador = $Burbuja
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	game_over.visible = false
+	jugador.connect("player_died", Callable(self, "on_player_died"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -29,3 +34,7 @@ func reproducir() -> void:
 func pararSonido() -> void:
 	$AudioStreamPlayer.stop()
 	
+func on_player_died() -> void:
+	game_over.visible = true
+	get_tree().paused = true
+	print("Game Over")
