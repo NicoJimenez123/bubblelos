@@ -5,11 +5,11 @@ extends Sprite2D
 
 var burbuja = preload('res://burbujaEstirar.gd').new()
 const ESTADOS: Dictionary = {
-	'estado1': 'posicion_burbuja_para_editar_PNG.webp',
-	'estado2': 'posicion_burbuja_normal_PNG.webp',
-	'estado3': 'posicion_burbuja_estirada_PNG.webp',
-	'estado4': 'posicion_burbuja_por_reventar_PNG.webp',
-	'estado5': 'posicion_burbuja_rota_PNG.webp',
+	'estado1': 'posicion burbuja para editar PNG.png',
+	'estado2': 'posicion burbuja normal PNG.png',
+	'estado3': 'posicion burbuja estirada PNG.png',
+	'estado4': 'posicion burbuja por reventar PNG.png',
+	'estado5': 'posicion burbuja rota PNG.png',
 }
 
 # Define los rangos de distancia y los estados asociados
@@ -31,7 +31,7 @@ var bubble_start_position = Vector2() #Posición inicial de la burbuja.
 var last_rotation : float = 0.0 #Variable para guardar la rotación.
 
 @onready var burbuja_area = $BurbujaArea
-@onready var barra_oxigeno = $BarraOxigeno
+@onready var barra_oxigeno = get_node('../BarraOxigeno')
 
 func _ready() -> void:
 	add_to_group('burbuja')
