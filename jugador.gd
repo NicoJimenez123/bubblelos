@@ -13,6 +13,8 @@ const ESTADOS: Dictionary = {
 	'estadoMuerte': 'Protagonista muerte PNG.png'
 }
 
+signal player_died
+
 # Define los rangos de distancia y los estados asociados
 const DISTANCE_RANGES: Array[Dictionary] = [
 	{ "max_distance": 100, "state": "estado1" },
@@ -43,7 +45,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Aplica el impulso a la posición de la burbuja
 	position += current_velocity * delta
-	
+	 	
 	# Obtener el ángulo de rotación desde el vector de velocidad
 	var target_angle = current_velocity.angle()
 	
@@ -104,3 +106,4 @@ func _on_enemigo_area_area_entered(area: Area2D) -> void:
 	#queue_free()  # Eliminar la burbuja
 	print('muerto')
 	barra_oxigeno.SetOxigenoACero()
+	emit_signal("player_died")
