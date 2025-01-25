@@ -9,4 +9,4 @@ func _process(delta: float) -> void:
 	pass
 
 func cargarSprite(estado):
-	return load('res://sprites/' + estado)
+	return load('res://sprites/burbuja/' + estado)
