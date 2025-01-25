@@ -10,6 +10,7 @@ const ESTADOS: Dictionary = {
 	'estado3': 'posicion burbuja estirada PNG.png',
 	'estado4': 'posicion burbuja por reventar PNG.png',
 	'estado5': 'posicion burbuja rota PNG.png',
+	'estadoMuerte': 'Protagonista muerte PNG.png '
 }
 
 # Define los rangos de distancia y los estados asociados
@@ -38,7 +39,6 @@ func _ready() -> void:
 	burbuja_area.connect("area_entered", Callable(self, "_on_burbuja_area_entered"))
 	#Fijamos la escala por defecto.
 	scale = Vector2(1,1)
-	pass
 
 func _physics_process(delta: float) -> void:
 	# Aplica el impulso a la posición de la burbuja
@@ -66,8 +66,10 @@ func _physics_process(delta: float) -> void:
 
 func _input(event):
 	if Input.is_key_pressed(KEY_R):
-		position.x = 160
-		position.y = 160
+		pass
+		#position.x = 160
+		#position.y = 160
+		#self.texture = burbuja.cargarSprite(ESTADOS['estado1'])
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			# Se presiona el click, guardamos la posición
@@ -95,7 +97,7 @@ func get_state_for_distance(distance: float) -> String:
 
 func _on_enemigo_area_area_entered(area: Area2D) -> void:
 	print("Enemigo entró en el area: ", area)
-	self.texture = burbuja.cargarSprite(ESTADOS['estado5'])
+	self.texture = burbuja.cargarSprite(ESTADOS['estadoMuerte'])
 	await get_tree().create_timer(0.2).timeout
 	queue_free()  # Eliminar la burbuja
 	barra_oxigeno.SetOxigenoACero()

@@ -1,17 +1,18 @@
 extends AnimatedSprite2D
 
 @export var velocidad = 200 # Velocidad de movimiento
-@onready var area_de_vision = $ConoDeVision
+@onready var area_de_vision = $Area2D
 
 var objetivo = null # Variable para almacenar el objetivo detectado
 
 func _ready():
 	add_to_group("enemigos") # Asegurate de que el enemigo esté en el grupo "enemigos"
-	#area_de_vision.connect("body_entered", Callable(self, "_on_body_entered"))
-	#area_de_vision.connect("body_exited", Callable(self, "_on_body_exited"))
+	area_de_vision.connect("body_entered", Callable(self, "_on_body_entered"))
+	area_de_vision.connect("body_exited", Callable(self, "_on_body_exited"))
 
 func _process(delta):
 	if objetivo != null:
+		print(objetivo)
 		# Calcula la dirección hacia el objetivo
 		var direccion = (objetivo.global_position - global_position).normalized()
 		# Mueve personaje hacia el objetivo
@@ -22,7 +23,7 @@ func _process(delta):
 func _on_body_entered(body):
 	# Verifica si el cuerpo que entró en el área es el objetivo
 	print(body)
-	if body.is_in_group("objetivo"):
+	if body.is_in_group("burbuja"):
 		objetivo = body
 
 func _on_body_exited(body):

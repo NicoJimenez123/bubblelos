@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bomuyq5bqwhvp"]
+
+[ext_resource type="VideoStream" path="res://Videos/Scape Bubble Intro.ogv" id="1_3mabg"]
+[ext_resource type="Script" path="res://video_stream_player.gd" id="2_mkol3"]
+
+[node name="juego" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="Video" type="Node2D" parent="."]
+position = Vector2(-7, -3)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Video"]
+offset_left = 231.0
+offset_top = 9.0
+offset_right = 2151.0
+offset_bottom = 1305.0
+stream = ExtResource("1_3mabg")
+autoplay = true
+script = ExtResource("2_mkol3")
+metadata/_edit_use_anchors_ = true
