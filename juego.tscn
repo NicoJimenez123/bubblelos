@@ -18,3 +18,5 @@ stream = ExtResource("1_3mabg")
 autoplay = true
 script = ExtResource("2_mkol3")
 metadata/_edit_use_anchors_ = true
+
+[connection signal="finished" from="Video/VideoStreamPlayer" to="Video/VideoStreamPlayer" method="_on_finished"]
