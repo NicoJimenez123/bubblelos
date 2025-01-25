@@ -3,7 +3,9 @@ extends Node2D
 @onready var game_over = get_node("/root/Nivel/GameOverBackground")
 @onready var game_over_label = get_node("/root/Nivel/GameOverBackground/Label")
 @onready var jugador = $Burbuja
-
+@onready var root = get_tree().root
+@onready var burbuja_area = $BurbujaArea
+@onready var barra_oxigeno = get_node('/root/Nivel/BarraOxigeno')
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,6 +17,8 @@ func _process(delta: float) -> void:
 	pass
 
 func _input(event: InputEvent) -> void:
+	if Input.is_key_pressed(KEY_R):
+		game_over.visible = false
 	if event is InputEventKey:
 		if event.is_pressed() and event.keycode == KEY_M:
 			toogleBackground()
@@ -36,5 +40,10 @@ func pararSonido() -> void:
 
 func on_player_died() -> void:
 	game_over.visible = true
-	get_tree().paused = true
+	#get_tree().paused = true
+	pause_all_nodes()
 	print("Game Over")
+
+func pause_all_nodes():
+	for child in root.get_children():
+		child.set_process(false)

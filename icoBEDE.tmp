@@ -1,0 +1,577 @@
+[gd_scene load_steps=89 format=3 uid="uid://b1rqqic2y67q4"]
+
+[ext_resource type="Script" path="res://nivel.gd" id="1_20c3v"]
+[ext_resource type="Script" path="res://jugador.gd" id="2_2fefo"]
+[ext_resource type="Texture2D" uid="uid://du8tnra08mi58" path="res://sprites/burbuja/posicion burbuja para editar PNG.png" id="3_12msl"]
+[ext_resource type="Script" path="res://barra_oxigeno.gd" id="4_vq5pf"]
+[ext_resource type="AudioStream" uid="uid://cdbd4ralivolb" path="res://Sonidos/Bluezone_BC0292_alien_tripod_texture_organic_liquid_005.wav" id="4_wrkxb"]
+[ext_resource type="Texture2D" uid="uid://0e485i1o2mli" path="res://sprites/fondo nivel medio camino.png" id="8_65c0e"]
+[ext_resource type="Texture2D" uid="uid://cwad6d32ubomn" path="res://Animaciones/pez verde _000/pez verde _000.png" id="9_sc6dw"]
+[ext_resource type="Texture2D" uid="uid://6a2m0i5xirxt" path="res://Animaciones/pez verde _000/pez verde _001.png" id="10_p3k5l"]
+[ext_resource type="Texture2D" uid="uid://d1077d0ewxu1b" path="res://Animaciones/pez verde _000/pez verde _002.png" id="11_lgsqi"]
+[ext_resource type="Texture2D" uid="uid://dru422pbrtneb" path="res://Animaciones/pez verde _000/pez verde _003.png" id="12_t07gn"]
+[ext_resource type="Texture2D" uid="uid://b88akdy6qjtdx" path="res://Animaciones/pez verde _000/pez verde _004.png" id="13_6gf1q"]
+[ext_resource type="Texture2D" uid="uid://dfcsf3n4b51ju" path="res://Animaciones/pez verde _000/pez verde _005.png" id="14_68ooj"]
+[ext_resource type="Texture2D" uid="uid://bpwdtn5vbbnfp" path="res://Animaciones/pez verde _000/pez verde _006.png" id="15_mw2lh"]
+[ext_resource type="Texture2D" uid="uid://bdc06g2jyl4f3" path="res://Animaciones/pez verde _000/pez verde _007.png" id="16_xa051"]
+[ext_resource type="Texture2D" uid="uid://bxspc4w4dhuv4" path="res://Animaciones/pez verde _000/pez verde _008.png" id="17_taikg"]
+[ext_resource type="Texture2D" uid="uid://bhli15o0qjmnb" path="res://Animaciones/pez verde _000/pez verde _009.png" id="18_3ipw6"]
+[ext_resource type="Texture2D" uid="uid://1jdxf2j86gjk" path="res://Animaciones/pez verde _000/pez verde _010.png" id="19_3bjx0"]
+[ext_resource type="Texture2D" uid="uid://iwfwmwoxuadg" path="res://Animaciones/pez verde _000/pez verde _011.png" id="20_bfn30"]
+[ext_resource type="Texture2D" uid="uid://bd4fjjfihnlui" path="res://Animaciones/pez verde _000/pez verde _012.png" id="21_ts7fo"]
+[ext_resource type="Texture2D" uid="uid://b5g33ptauxyuw" path="res://Animaciones/pez verde _000/pez verde _013.png" id="22_g6bxy"]
+[ext_resource type="Texture2D" uid="uid://dqfcq3s1isqv7" path="res://Animaciones/pez verde _000/pez verde _014.png" id="23_xru86"]
+[ext_resource type="Texture2D" uid="uid://bcbnw5kopak0u" path="res://Animaciones/pez verde _000/pez verde _015.png" id="24_urp3t"]
+[ext_resource type="Texture2D" uid="uid://b0nkj0g1s6qvl" path="res://Animaciones/pez verde _000/pez verde _016.png" id="25_4niig"]
+[ext_resource type="Texture2D" uid="uid://dqm3nwgug63la" path="res://Animaciones/pez verde _000/pez verde _017.png" id="26_a25gk"]
+[ext_resource type="Texture2D" uid="uid://byi3kmng8wp8p" path="res://Animaciones/pez verde _000/pez verde _018.png" id="27_op1bj"]
+[ext_resource type="Texture2D" uid="uid://cugcdrj1h5ka4" path="res://Animaciones/pez verde _000/pez verde _019.png" id="28_7j5sn"]
+[ext_resource type="Texture2D" uid="uid://by568q8n1yeo5" path="res://Animaciones/pez verde _000/pez verde _020.png" id="29_rlwpw"]
+[ext_resource type="Texture2D" uid="uid://mg5272j4xh51" path="res://Animaciones/pez verde _000/pez verde _021.png" id="30_wh2ey"]
+[ext_resource type="Texture2D" uid="uid://dqno7qmhnwyh3" path="res://Animaciones/pez verde _000/pez verde _022.png" id="31_gq6tn"]
+[ext_resource type="Texture2D" uid="uid://25xaafqxkiti" path="res://Animaciones/pez verde _000/pez verde _023.png" id="32_cwdb0"]
+[ext_resource type="Script" path="res://peces.gd" id="33_oi0nw"]
+[ext_resource type="Texture2D" uid="uid://b0mywfj0n5swd" path="res://Animaciones/imagen monstruo chico/MONSTRO-CHICO.png" id="34_1l42i"]
+[ext_resource type="Texture2D" uid="uid://buqn7fenwfu3i" path="res://Animaciones/imagen monstruo chico/RECOVER_RECUP_monstruo-2.png" id="35_w1k84"]
+[ext_resource type="Texture2D" uid="uid://o2bn7oh1pva2" path="res://Animaciones/imagen monstruo chico/RECOVER_RECUP_monstruo-3.png" id="36_f1g6w"]
+[ext_resource type="Texture2D" uid="uid://b8k12b71v8yav" path="res://Animaciones/imagen monstruo chico/RECOVER_RECUP_monstruo-4.png" id="37_yah3h"]
+[ext_resource type="Texture2D" uid="uid://c7tcf0c6372v3" path="res://Animaciones/imagen monstruo chico/RECOVER_RECUP_monstruo-6.png" id="38_lueor"]
+[ext_resource type="Texture2D" uid="uid://bdiekql0eepx7" path="res://Animaciones/imagen monstruo chico/RECOVER_RECUP_monstruo.png" id="39_f8gxr"]
+[ext_resource type="Texture2D" uid="uid://ckpj2ymhc1aef" path="res://sprites/planta coral.png" id="39_itdtl"]
+[ext_resource type="Texture2D" uid="uid://htxqj0qiyfgg" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-0.png" id="40_6uyny"]
+[ext_resource type="Script" path="res://enemigo_atacante.gd" id="40_dn4l8"]
+[ext_resource type="Texture2D" uid="uid://b8cbmy33gpv1v" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-1.png" id="41_7mcun"]
+[ext_resource type="Texture2D" uid="uid://d37mte8uoha4b" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-2.png" id="42_cif8t"]
+[ext_resource type="Texture2D" uid="uid://dl5mrgdyf85g" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-3.png" id="43_wm8ut"]
+[ext_resource type="Texture2D" uid="uid://ctvbwfy2y03ng" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-4.png" id="44_n5nsd"]
+[ext_resource type="Texture2D" uid="uid://dckd8btkpy4qm" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-5.png" id="45_253sn"]
+[ext_resource type="Texture2D" uid="uid://cw5no54piude2" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-6.png" id="46_6chcf"]
+[ext_resource type="Texture2D" uid="uid://s27iob3ogobt" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-7.png" id="47_ouspm"]
+[ext_resource type="Texture2D" uid="uid://dvla61wonnyg5" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-8.png" id="48_jo7gq"]
+[ext_resource type="Texture2D" uid="uid://bg6u07nuafgff" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-9.png" id="49_e4tof"]
+[ext_resource type="Texture2D" uid="uid://bequvyvhoh5ax" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-10.png" id="50_a0llw"]
+[ext_resource type="Texture2D" uid="uid://6ag0hmpms847" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-11.png" id="51_ka6kc"]
+[ext_resource type="Texture2D" uid="uid://bk1btivdqxkxc" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-12.png" id="52_p5hml"]
+[ext_resource type="Texture2D" uid="uid://1mwjth7gqa1x" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-13.png" id="53_uhtfw"]
+[ext_resource type="Texture2D" uid="uid://c6disb8m4i32n" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-14.png" id="54_gtlhd"]
+[ext_resource type="Texture2D" uid="uid://btrw3pnr1itf" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-15.png" id="55_n41l4"]
+[ext_resource type="Texture2D" uid="uid://bcrwqag2hinw8" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-16.png" id="56_lttf2"]
+[ext_resource type="Texture2D" uid="uid://cycinjcatqo8i" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-17.png" id="57_rhbqx"]
+[ext_resource type="Texture2D" uid="uid://00cjvby8hguo" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-18.png" id="58_a7d5o"]
+[ext_resource type="Texture2D" uid="uid://chy3ikqyu5aqj" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-19.png" id="59_6iapk"]
+[ext_resource type="Texture2D" uid="uid://bcvub8gkdkfo8" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-20.png" id="60_5b0xg"]
+[ext_resource type="Texture2D" uid="uid://dhehic16uuykh" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-21.png" id="61_vknbm"]
+[ext_resource type="Texture2D" uid="uid://bciaoyho342jg" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-22.png" id="62_ctuph"]
+[ext_resource type="Texture2D" uid="uid://b6f1sph18bxmg" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-23.png" id="63_kw5c8"]
+[ext_resource type="Texture2D" uid="uid://dfh2tpcj3b313" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-24.png" id="64_47mnu"]
+[ext_resource type="Texture2D" uid="uid://dflets486s12f" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-25.png" id="65_6acbl"]
+[ext_resource type="Texture2D" uid="uid://qpvaaa6mhwpe" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-26.png" id="66_d0kpd"]
+[ext_resource type="Texture2D" uid="uid://cii354np1uk30" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-27.png" id="67_rlby0"]
+[ext_resource type="Texture2D" uid="uid://bjcewdbrqcrem" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-28.png" id="68_mqhj5"]
+[ext_resource type="Texture2D" uid="uid://gvsh4esrvaqr" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-29.png" id="69_r4bs5"]
+[ext_resource type="Texture2D" uid="uid://dy4na8o8wddvr" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-30.png" id="70_x5ewy"]
+[ext_resource type="Texture2D" uid="uid://c8tvoeblwobao" path="res://Animaciones/Roca/roca1.png" id="71_jjqua"]
+[ext_resource type="Texture2D" uid="uid://on1huukjrooq" path="res://Animaciones/Roca/roca2.png" id="72_gouj6"]
+[ext_resource type="Texture2D" uid="uid://d3f62mha70c1y" path="res://Animaciones/Roca/roca3.png" id="73_djyfv"]
+[ext_resource type="Texture2D" uid="uid://bnbmg608twcqf" path="res://Animaciones/Nave/nave explocion_000.png" id="74_h4qgu"]
+[ext_resource type="Texture2D" uid="uid://b3n4j6k0gbm8d" path="res://Animaciones/Nave/nave explocion_001.png" id="75_slqng"]
+[ext_resource type="Texture2D" uid="uid://6hp4m2mn0smx" path="res://Animaciones/Nave/nave explocion_002.png" id="76_i7hpa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t2qjt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("71_jjqua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_gouj6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_djyfv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_vosub"]
+resource_name = "animacion_jugador"
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cm3vv"]
+_data = {
+"animacion_jugador": SubResource("Animation_vosub")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6raf3"]
+radius = 125.3
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dwbxp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_sc6dw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_p3k5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_lgsqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_t07gn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_6gf1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_68ooj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_mw2lh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_xa051")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_taikg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_3ipw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_3bjx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_bfn30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ts7fo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_g6bxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_xru86")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_urp3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_4niig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_a25gk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_op1bj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_7j5sn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_rlwpw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_wh2ey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_gq6tn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_cwdb0")
+}],
+"loop": true,
+"name": &"Pez",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox1un"]
+size = Vector2(224, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n8y8x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_1l42i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_w1k84")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_f1g6w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_yah3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_lueor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_f8gxr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2p1ct"]
+size = Vector2(1445.76, 257.709)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w4idu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("40_6uyny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_7mcun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_cif8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_wm8ut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_n5nsd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_253sn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_6chcf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_ouspm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_jo7gq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_e4tof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_a0llw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_ka6kc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_p5hml")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_uhtfw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_gtlhd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_n41l4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_lttf2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_rhbqx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_a7d5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_6iapk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_5b0xg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_vknbm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_ctuph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_kw5c8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_47mnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_6acbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_d0kpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_rlby0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_mqhj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_r4bs5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_x5ewy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6l8od"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("74_h4qgu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_slqng")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_i7hpa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_581gq"]
+bg_color = Color(0.150258, 0.189192, 0.225234, 0.403922)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmske"]
+bg_color = Color(0.0672095, 0.343295, 0.145464, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Nivel" type="Node2D"]
+position = Vector2(-7, 7)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_20c3v")
+
+[node name="FondoNivelMedioCamino" type="Sprite2D" parent="."]
+z_index = -4096
+position = Vector2(1182, 636)
+scale = Vector2(3.16032, 0.912921)
+texture = ExtResource("8_65c0e")
+
+[node name="Roca" type="AnimatedSprite2D" parent="FondoNivelMedioCamino"]
+position = Vector2(-159.478, 324.234)
+scale = Vector2(0.870242, 3.37004)
+sprite_frames = SubResource("SpriteFrames_t2qjt")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FondoNivelMedioCamino/Roca"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cm3vv")
+}
+autoplay = "animacion_jugador"
+
+[node name="Burbuja" type="Sprite2D" parent="."]
+position = Vector2(214, 212)
+texture = ExtResource("3_12msl")
+script = ExtResource("2_2fefo")
+move_speed = null
+rotation_speed = null
+
+[node name="BurbujaArea" type="Area2D" parent="Burbuja"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Burbuja/BurbujaArea"]
+position = Vector2(0, -28)
+shape = SubResource("CircleShape2D_6raf3")
+debug_color = Color(0.839185, 0.384421, 0, 0.42)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wrkxb")
+volume_db = -0.115
+
+[node name="Pez verde" type="AnimatedSprite2D" parent="."]
+position = Vector2(630, 702)
+sprite_frames = SubResource("SpriteFrames_dwbxp")
+animation = &"Pez"
+autoplay = "Pez"
+frame_progress = 0.531866
+script = ExtResource("33_oi0nw")
+
+[node name="EnemigoArea" type="Area2D" parent="Pez verde"]
+position = Vector2(-53, -96)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pez verde/EnemigoArea"]
+position = Vector2(95, 102)
+shape = SubResource("RectangleShape2D_ox1un")
+debug_color = Color(0.639586, 0.524487, 0.0529382, 0.42)
+
+[node name="EnemigoAtacante1" type="AnimatedSprite2D" parent="."]
+position = Vector2(228, 1092)
+rotation = 1.57603
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_n8y8x")
+autoplay = "default"
+frame_progress = 0.0423441
+script = ExtResource("40_dn4l8")
+
+[node name="EnemigoArea" type="Area2D" parent="EnemigoAtacante1"]
+position = Vector2(-23.0402, 16.5833)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemigoAtacante1/EnemigoArea"]
+position = Vector2(183.04, -43.25)
+shape = SubResource("RectangleShape2D_2p1ct")
+
+[node name="Pez Azul" type="AnimatedSprite2D" parent="."]
+position = Vector2(1684, 204)
+sprite_frames = SubResource("SpriteFrames_w4idu")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pez Azul"]
+
+[node name="PlantaCoral" type="Sprite2D" parent="."]
+position = Vector2(2152, 1038)
+scale = Vector2(3.68765, 2.6404)
+texture = ExtResource("39_itdtl")
+
+[node name="Roca" type="AnimatedSprite2D" parent="."]
+position = Vector2(682, 1120)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_t2qjt")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Roca"]
+
+[node name="Nave" type="AnimatedSprite2D" parent="."]
+position = Vector2(2168, 470)
+sprite_frames = SubResource("SpriteFrames_6l8od")
+autoplay = "default"
+frame_progress = 0.150885
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Nave"]
+
+[node name="BarraOxigeno" type="ProgressBar" parent="."]
+anchors_preset = -1
+anchor_left = 5.006
+anchor_top = 0.103
+anchor_right = 5.079
+anchor_bottom = 0.103
+offset_left = 1946.0
+offset_top = 20.0
+offset_right = 2284.0
+offset_bottom = 109.0
+theme_override_styles/background = SubResource("StyleBoxFlat_581gq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jmske")
+value = 100.0
+script = ExtResource("4_vq5pf")
+
+[node name="Roca2" type="AnimatedSprite2D" parent="."]
+position = Vector2(678, 524)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_t2qjt")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Roca2"]
+
+[node name="Roca3" type="AnimatedSprite2D" parent="."]
+position = Vector2(2144, 796)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_t2qjt")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Roca3"]
+
+[node name="Roca" type="AnimatedSprite2D" parent="Roca3"]
+position = Vector2(682, 1120)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_t2qjt")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Roca3/Roca"]
+
+[node name="Roca4" type="AnimatedSprite2D" parent="."]
+position = Vector2(1362, 340)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_t2qjt")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Roca4"]
+
+[node name="Roca5" type="AnimatedSprite2D" parent="."]
+position = Vector2(1376, 636)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_t2qjt")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Roca5"]
+
+[node name="Roca6" type="AnimatedSprite2D" parent="."]
+position = Vector2(1100, 1116)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_t2qjt")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Roca6"]
+
+[node name="Roca7" type="AnimatedSprite2D" parent="."]
+position = Vector2(1352, 98)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_t2qjt")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Roca7"]
+
+[node name="Roca8" type="AnimatedSprite2D" parent="."]
+position = Vector2(1496, 1134)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_t2qjt")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Roca8"]
+
+[node name="Roca9" type="AnimatedSprite2D" parent="."]
+position = Vector2(1804, 1134)
+scale = Vector2(3.1, 3)
+sprite_frames = SubResource("SpriteFrames_t2qjt")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Roca9"]
+
+[node name="GameOverBackground" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 14.0
+offset_top = -6.0
+offset_right = 2346.0
+offset_bottom = 1294.0
+
+[node name="ColorRect" type="ColorRect" parent="GameOverBackground"]
+layout_mode = 0
+offset_right = 2312.0
+offset_bottom = 1280.0
+color = Color(0, 0, 0, 0.458824)
+
+[node name="Label" type="Label" parent="GameOverBackground"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 156.0
+offset_right = 488.0
+offset_bottom = 326.0
+scale = Vector2(5.82881, 5.89306)
+text = "    GAME OVER  =(
+
+
+Presiona R para reiniciar el juego"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="Burbuja/BurbujaArea" to="Burbuja" method="_on_burbuja_area_area_entered"]
+[connection signal="area_entered" from="Pez verde/EnemigoArea" to="Burbuja" method="_on_enemigo_area_area_entered"]
+[connection signal="area_entered" from="EnemigoAtacante1/EnemigoArea" to="Burbuja" method="_on_enemigo_area_area_entered"]
