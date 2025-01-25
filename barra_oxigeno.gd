@@ -47,3 +47,10 @@ func actualiza_color(value):
 func SetOxigenoACero():
 	value = 0
 	actualiza_color(value)  # Actualiza el color si es necesario
+	
+func GetValue():
+	return value
+
+func SetValueAMax():
+	value=maxValor
+	actualiza_color(value)

@@ -10,7 +10,7 @@ const ESTADOS: Dictionary = {
 	'estado3': 'posicion burbuja estirada PNG.png',
 	'estado4': 'posicion burbuja por reventar PNG.png',
 	'estado5': 'posicion burbuja rota PNG.png',
-	'estadoMuerte': 'Protagonista muerte PNG.png '
+	'estadoMuerte': 'Protagonista muerte PNG.png'
 }
 
 # Define los rangos de distancia y los estados asociados
@@ -66,10 +66,10 @@ func _physics_process(delta: float) -> void:
 
 func _input(event):
 	if Input.is_key_pressed(KEY_R):
-		pass
-		#position.x = 160
-		#position.y = 160
-		#self.texture = burbuja.cargarSprite(ESTADOS['estado1'])
+		position.x = 160
+		position.y = 160
+		barra_oxigeno.SetValueAMax()
+		self.texture = burbuja.cargarSprite(ESTADOS['estado1'])
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			# Se presiona el click, guardamos la posición
@@ -90,14 +90,17 @@ func _input(event):
 			current_velocity = impulse_vector * move_speed
 		
 func get_state_for_distance(distance: float) -> String:
-	for range in DISTANCE_RANGES:
-		if distance <= range.max_distance:
-			return range.state
-	return "estado5"  # Por si algo falla, aplicamos el último estado
+	if  barra_oxigeno.GetValue() > 0: #Sigue vivo
+		for range in DISTANCE_RANGES:
+			if distance <= range.max_distance:
+				return range.state
+		return "estado5"  # Por si algo falla, aplicamos el último estado
+	else:
+		return 'estadoMuerte'
 
 func _on_enemigo_area_area_entered(area: Area2D) -> void:
 	print("Enemigo entró en el area: ", area)
-	self.texture = burbuja.cargarSprite(ESTADOS['estadoMuerte'])
-	await get_tree().create_timer(0.2).timeout
-	queue_free()  # Eliminar la burbuja
+	#await get_tree().create_timer(0.2).timeout
+	#queue_free()  # Eliminar la burbuja
+	print('muerto')
 	barra_oxigeno.SetOxigenoACero()

@@ -7,8 +7,8 @@ var objetivo = null # Variable para almacenar el objetivo detectado
 
 func _ready():
 	add_to_group("enemigos") # Asegurate de que el enemigo esté en el grupo "enemigos"
-	area_de_vision.connect("body_entered", Callable(self, "_on_body_entered"))
-	area_de_vision.connect("body_exited", Callable(self, "_on_body_exited"))
+	#area_de_vision.connect("body_entered", Callable(self, "_on_body_entered"))
+	#area_de_vision.connect("body_exited", Callable(self, "_on_body_exited"))
 
 func _process(delta):
 	if objetivo != null:
