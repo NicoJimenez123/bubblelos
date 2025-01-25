@@ -1,7 +1,8 @@
-[gd_scene load_steps=81 format=3 uid="uid://b1rqqic2y67q4"]
+[gd_scene load_steps=94 format=3 uid="uid://b1rqqic2y67q4"]
 
 [ext_resource type="Script" path="res://nivel.gd" id="1_20c3v"]
 [ext_resource type="Script" path="res://jugador.gd" id="2_2fefo"]
+[ext_resource type="Texture2D" uid="uid://du8tnra08mi58" path="res://sprites/burbuja/posicion burbuja para editar PNG.png" id="3_12msl"]
 [ext_resource type="Script" path="res://barra_oxigeno.gd" id="4_vq5pf"]
 [ext_resource type="AudioStream" uid="uid://cdbd4ralivolb" path="res://Sonidos/Bluezone_BC0292_alien_tripod_texture_organic_liquid_005.wav" id="4_wrkxb"]
 [ext_resource type="Texture2D" uid="uid://0e485i1o2mli" path="res://sprites/fondo nivel medio camino.png" id="8_65c0e"]
@@ -12,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://b88akdy6qjtdx" path="res://Animaciones/pez verde _000/pez verde _004.png" id="13_6gf1q"]
 [ext_resource type="Texture2D" uid="uid://dfcsf3n4b51ju" path="res://Animaciones/pez verde _000/pez verde _005.png" id="14_68ooj"]
 [ext_resource type="Texture2D" uid="uid://bpwdtn5vbbnfp" path="res://Animaciones/pez verde _000/pez verde _006.png" id="15_mw2lh"]
-[ext_resource type="Texture2D" uid="uid://dcbj3hknl31t3" path="res://sprites/posicion_burbuja_normal_PNG.webp" id="16_deiyk"]
 [ext_resource type="Texture2D" uid="uid://bdc06g2jyl4f3" path="res://Animaciones/pez verde _000/pez verde _007.png" id="16_xa051"]
 [ext_resource type="Texture2D" uid="uid://bxspc4w4dhuv4" path="res://Animaciones/pez verde _000/pez verde _008.png" id="17_taikg"]
 [ext_resource type="Texture2D" uid="uid://bhli15o0qjmnb" path="res://Animaciones/pez verde _000/pez verde _009.png" id="18_3ipw6"]
@@ -70,6 +70,17 @@
 [ext_resource type="Texture2D" uid="uid://bjcewdbrqcrem" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-28.png" id="68_mqhj5"]
 [ext_resource type="Texture2D" uid="uid://gvsh4esrvaqr" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-29.png" id="69_r4bs5"]
 [ext_resource type="Texture2D" uid="uid://dy4na8o8wddvr" path="res://Animaciones/Pez azul/edac0cc66f18443aacccd83da577dc9dE94UxkGthyfYUgex-30.png" id="70_x5ewy"]
+[ext_resource type="Texture2D" uid="uid://c8tvoeblwobao" path="res://Animaciones/Roca/roca1.png" id="71_jjqua"]
+[ext_resource type="Texture2D" uid="uid://on1huukjrooq" path="res://Animaciones/Roca/roca2.png" id="72_gouj6"]
+[ext_resource type="Texture2D" uid="uid://d3f62mha70c1y" path="res://Animaciones/Roca/roca3.png" id="73_djyfv"]
+[ext_resource type="Texture2D" uid="uid://bnbmg608twcqf" path="res://Animaciones/Nave/nave explocion_000.png" id="74_h4qgu"]
+[ext_resource type="Texture2D" uid="uid://b3n4j6k0gbm8d" path="res://Animaciones/Nave/nave explocion_001.png" id="75_slqng"]
+[ext_resource type="Texture2D" uid="uid://6hp4m2mn0smx" path="res://Animaciones/Nave/nave explocion_002.png" id="76_i7hpa"]
+[ext_resource type="Texture2D" uid="uid://g3dfngqwn76v" path="res://Animaciones/Nave/nave explocion_003.png" id="77_unj6f"]
+[ext_resource type="Texture2D" uid="uid://bijdl7182g5a7" path="res://Animaciones/Nave/nave explocion_004.png" id="78_poryl"]
+[ext_resource type="Texture2D" uid="uid://bvymce4sd8s3" path="res://Animaciones/Nave/nave explocion_005.png" id="79_8e7bv"]
+[ext_resource type="Texture2D" uid="uid://dcxh4dua1x40e" path="res://Animaciones/Nave/nave explocion_006.png" id="80_qgjk6"]
+[ext_resource type="Texture2D" uid="uid://dgsx5hms512xe" path="res://Animaciones/Nave/nave explocion_007.png" id="81_iao8r"]
 
 [sub_resource type="Animation" id="Animation_vosub"]
 resource_name = "animacion_jugador"
@@ -82,20 +93,6 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6raf3"]
 radius = 125.3
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_581gq"]
-bg_color = Color(0.150258, 0.189192, 0.225234, 0.403922)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmske"]
-bg_color = Color(0.0672095, 0.343295, 0.145464, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dwbxp"]
 animations = [{
@@ -310,10 +307,79 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_t2qjt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("71_jjqua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_gouj6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_djyfv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6l8od"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("74_h4qgu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_slqng")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_i7hpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_unj6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_poryl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_8e7bv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_qgjk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_iao8r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_581gq"]
+bg_color = Color(0.150258, 0.189192, 0.225234, 0.403922)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmske"]
+bg_color = Color(0.0672095, 0.343295, 0.145464, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="Nivel" type="Node2D"]
 position = Vector2(-7, 7)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_20c3v")
+
+[node name="FondoNivelMedioCamino" type="Sprite2D" parent="."]
+z_index = -4096
+position = Vector2(1180, 624)
+scale = Vector2(3.16032, 0.912921)
+texture = ExtResource("8_65c0e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -322,8 +388,8 @@ libraries = {
 autoplay = "animacion_jugador"
 
 [node name="Burbuja" type="Sprite2D" parent="."]
-position = Vector2(378, 318)
-texture = ExtResource("16_deiyk")
+position = Vector2(488.875, 463.175)
+texture = ExtResource("3_12msl")
 script = ExtResource("2_2fefo")
 
 [node name="BurbujaArea" type="Area2D" parent="Burbuja"]
@@ -334,27 +400,8 @@ position = Vector2(0, -28)
 shape = SubResource("CircleShape2D_6raf3")
 debug_color = Color(0.839185, 0.384421, 0, 0.42)
 
-[node name="BarraOxigeno" type="ProgressBar" parent="Burbuja"]
-anchors_preset = -1
-anchor_left = -0.082
-anchor_right = -0.082
-offset_left = 1461.93
-offset_top = -302.0
-offset_right = 1940.93
-offset_bottom = -188.0
-theme_override_styles/background = SubResource("StyleBoxFlat_581gq")
-theme_override_styles/fill = SubResource("StyleBoxFlat_jmske")
-value = 100.0
-script = ExtResource("4_vq5pf")
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_wrkxb")
-
-[node name="FondoNivelMedioCamino" type="Sprite2D" parent="."]
-z_index = -4096
-position = Vector2(1156, 642)
-scale = Vector2(3.16032, 0.912921)
-texture = ExtResource("8_65c0e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(264, 1070)
@@ -400,6 +447,37 @@ autoplay = "default"
 position = Vector2(2152, 1038)
 scale = Vector2(3.68765, 2.6404)
 texture = ExtResource("39_itdtl")
+
+[node name="Roca" type="AnimatedSprite2D" parent="."]
+position = Vector2(682, 1120)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_t2qjt")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Roca"]
+
+[node name="Nave" type="AnimatedSprite2D" parent="."]
+position = Vector2(1448, 1094)
+sprite_frames = SubResource("SpriteFrames_6l8od")
+autoplay = "default"
+frame_progress = 0.150885
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Nave"]
+
+[node name="BarraOxigeno" type="ProgressBar" parent="."]
+anchors_preset = -1
+anchor_left = 5.006
+anchor_top = 0.103
+anchor_right = 5.079
+anchor_bottom = 0.103
+offset_left = 1804.0
+offset_top = 30.0
+offset_right = 2257.81
+offset_bottom = 144.0
+theme_override_styles/background = SubResource("StyleBoxFlat_581gq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jmske")
+value = 100.0
+script = ExtResource("4_vq5pf")
 
 [connection signal="area_entered" from="Burbuja/BurbujaArea" to="Burbuja" method="_on_burbuja_area_area_entered"]
 [connection signal="area_entered" from="AnimatedSprite2D/EnemigoArea" to="Burbuja" method="_on_enemigo_area_area_entered"]
