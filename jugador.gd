@@ -14,6 +14,7 @@ const ESTADOS: Dictionary = {
 }
 
 signal player_died
+signal player_win
 
 # Define los rangos de distancia y los estados asociados
 const DISTANCE_RANGES: Array[Dictionary] = [
@@ -43,28 +44,35 @@ func _ready() -> void:
 	scale = Vector2(1,1)
 
 func _physics_process(delta: float) -> void:
-	# Aplica el impulso a la posición de la burbuja
-	position += current_velocity * delta
-	 	
-	# Obtener el ángulo de rotación desde el vector de velocidad
-	var target_angle = current_velocity.angle()
+	if barra_oxigeno.GetValue() > 0:
+		# Aplica el impulso a la posición de la burbuja
+		position += current_velocity * delta
+		 	
+		# Obtener el ángulo de rotación desde el vector de velocidad
+		var target_angle = current_velocity.angle()
+		
+		#Aplicamos un offset para que la rotación sea correcta.
+		var offset_angle = PI/2
+		
+		#Interpolamos el ángulo
+		rotation = lerp(last_rotation, target_angle + offset_angle, rotation_speed * delta)
+		
+		current_velocity = current_velocity * 0.9
+		var distance = (position - bubble_start_position).length()
+		if abs(current_velocity.x) < 0.1 and abs(current_velocity.y) < 0.1: # Si la velocidad es menor a 0.1
+			current_velocity = Vector2.ZERO #Detenemos la burbuja
+			bubble_start_position = position
+			last_rotation = rotation #Guardamos la rotación cuando se detiene.
+		#Calculamos el estado del sprite segun la distancia recorrida.
+		var new_state = get_state_for_distance(distance)
+		#CAMBIO IMPORTANTE: ASIGNAMOS LA TEXTURA AL SPRITE
+		self.texture = burbuja.cargarSprite(ESTADOS[new_state])
+	else:
+		emit_signal('player_died')
+		self.texture = burbuja.cargarSprite(ESTADOS["estadoMuerte"])
+		current_velocity = Vector2()
+		current_impulse = Vector2()
 	
-	#Aplicamos un offset para que la rotación sea correcta.
-	var offset_angle = PI/2
-	
-	#Interpolamos el ángulo
-	rotation = lerp(last_rotation, target_angle + offset_angle, rotation_speed * delta)
-	
-	current_velocity = current_velocity * 0.9
-	var distance = (position - bubble_start_position).length()
-	if abs(current_velocity.x) < 0.1 and abs(current_velocity.y) < 0.1: # Si la velocidad es menor a 0.1
-		current_velocity = Vector2.ZERO #Detenemos la burbuja
-		bubble_start_position = position
-		last_rotation = rotation #Guardamos la rotación cuando se detiene.
-	#Calculamos el estado del sprite segun la distancia recorrida.
-	var new_state = get_state_for_distance(distance)
-	#CAMBIO IMPORTANTE: ASIGNAMOS LA TEXTURA AL SPRITE
-	self.texture = burbuja.cargarSprite(ESTADOS[new_state])
 
 func _input(event):
 	if Input.is_key_pressed(KEY_R):
@@ -107,3 +115,46 @@ func _on_enemigo_area_area_entered(area: Area2D) -> void:
 	print('muerto')
 	barra_oxigeno.SetOxigenoACero()
 	emit_signal("player_died")
+
+
+func _on_area_rocas_area_entered(area: Area2D) -> void:
+	print("Enemigo entró en el area: ", area)
+	#await get_tree().create_timer(0.2).timeout
+	#queue_free()  # Eliminar la burbuja
+	print('muerto')
+	barra_oxigeno.SetOxigenoACero()
+	emit_signal("player_died")
+	
+
+
+func _on_area_rocas_2_area_entered(area: Area2D) -> void:
+	print("Enemigo entró en el area: ", area)
+	#await get_tree().create_timer(0.2).timeout
+	#queue_free()  # Eliminar la burbuja
+	print('muerto')
+	barra_oxigeno.SetOxigenoACero()
+	emit_signal("player_died")
+
+
+func _on_area_rocas_3_area_entered(area: Area2D) -> void:
+	print("Enemigo entró en el area: ", area)
+	#await get_tree().create_timer(0.2).timeout
+	#queue_free()  # Eliminar la burbuja
+	print('muerto')
+	barra_oxigeno.SetOxigenoACero()
+	emit_signal("player_died")
+
+func _on_area_rocas_4_area_entered(area: Area2D) -> void:
+	print("Enemigo entró en el area: ", area)
+	#await get_tree().create_timer(0.2).timeout
+	#queue_free()  # Eliminar la burbuja
+	print('muerto')
+	barra_oxigeno.SetOxigenoACero()
+	emit_signal("player_died")
+
+
+func _on_area_nave_area_entered(area: Area2D) -> void:
+	print("Ganó")
+	barra_oxigeno.pauseOxigeno()
+	emit_signal("player_win")
+	await get_tree().create_timer(0.2).timeout

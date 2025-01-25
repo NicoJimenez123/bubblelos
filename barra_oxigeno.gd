@@ -3,6 +3,7 @@ extends ProgressBar
 var maxValor: int = 100
 var disminucionOxigeno: int = 5
 var tiempoTranscurrido: float = 0.0
+var disminuirOxigeno = true
 
 func _ready() -> void:
 	
@@ -14,16 +15,15 @@ func _process(delta: float) -> void:
 	tiempoTranscurrido += delta
 		
 	if tiempoTranscurrido >= 1.0:
-		DisminuirOxigeno()
+		if disminuirOxigeno:
+			DisminuirOxigeno()
 		tiempoTranscurrido = 0.0
 	
 func DisminuirOxigeno():
-	
 	if value > 0:
 		value -= disminucionOxigeno
 		value = max(value, 0)
 		actualiza_color(value)
-		
 	else:
 		pass
 
@@ -54,3 +54,7 @@ func GetValue():
 func SetValueAMax():
 	value=maxValor
 	actualiza_color(value)
+
+func pauseOxigeno():
+	disminuirOxigeno = false
+	SetValueAMax()
