@@ -75,11 +75,6 @@ func _physics_process(delta: float) -> void:
 	
 
 func _input(event):
-	if Input.is_key_pressed(KEY_R):
-		position.x = 160
-		position.y = 160
-		barra_oxigeno.SetValueAMax()
-		self.texture = burbuja.cargarSprite(ESTADOS['estado1'])
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			# Se presiona el click, guardamos la posición
@@ -99,6 +94,16 @@ func _input(event):
 			
 			current_velocity = impulse_vector * move_speed
 		
+func reiniciar():
+	position.x = 214
+	position.y = 214
+	self.texture = burbuja.cargarSprite(ESTADOS['estado1'])
+	
+func ganar():
+	position.x = -999999
+	position.x = 999999
+	self.texture = burbuja.cargarSprite(ESTADOS['estado1'])
+
 func get_state_for_distance(distance: float) -> String:
 	if  barra_oxigeno.GetValue() > 0: #Sigue vivo
 		for range in DISTANCE_RANGES:

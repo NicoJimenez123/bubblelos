@@ -13,7 +13,7 @@ func _ready():
 
 func _process(delta):
 	if moviendo:
-		position.y -= velocidad * delta
+		position.y -= velocidad * (delta * 0.8)
 	if objetivo != null:
 		print(objetivo)
 		# Calcula la dirección hacia el objetivo

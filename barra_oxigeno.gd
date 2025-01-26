@@ -58,3 +58,8 @@ func SetValueAMax():
 func pauseOxigeno():
 	disminuirOxigeno = false
 	SetValueAMax()
+
+func reiniciar():
+	value = 100
+	disminuirOxigeno = true
+	actualiza_color(value)

@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bomuyq5bqwhvp"]
+[gd_scene load_steps=5 format=3 uid="uid://bomuyq5bqwhvp"]
 
-[ext_resource type="VideoStream" path="res://Videos/Scape Bubble Intro.ogv" id="1_3mabg"]
+[ext_resource type="VideoStream" path="res://Videos/Scape Bubble intro.ogv" id="1_bti83"]
 [ext_resource type="Script" path="res://video_stream_player.gd" id="2_mkol3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ovko"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_2h76l"]
+font_size = 48
 
 [node name="juego" type="Node2D"]
 scale = Vector2(0.5, 0.5)
@@ -9,14 +15,41 @@ scale = Vector2(0.5, 0.5)
 [node name="Video" type="Node2D" parent="."]
 position = Vector2(-7, -3)
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Video"]
-offset_left = 231.0
-offset_top = 9.0
-offset_right = 2151.0
-offset_bottom = 1305.0
-stream = ExtResource("1_3mabg")
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Video"]
+offset_right = 2323.0
+offset_bottom = 1311.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Video/AspectRatioContainer"]
+layout_mode = 2
+stream = ExtResource("1_bti83")
 autoplay = true
+expand = true
 script = ExtResource("2_mkol3")
 metadata/_edit_use_anchors_ = true
 
-[connection signal="finished" from="Video/VideoStreamPlayer" to="Video/VideoStreamPlayer" method="_on_finished"]
+[node name="AyudaSkipScene" type="Label" parent="Video"]
+offset_left = 1765.0
+offset_top = -27.0
+offset_right = 2363.0
+offset_bottom = 247.0
+text = "Presiona ESPACIO
+para
+saltear la cinemática
+"
+label_settings = SubResource("LabelSettings_1ovko")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Video"]
+offset_left = 1475.0
+offset_top = 1095.0
+offset_right = 2634.0
+offset_bottom = 1302.0
+text = "TIP: Haz CLICK
+y arrastra el MOUSE
+para MOVERTE"
+label_settings = SubResource("LabelSettings_2h76l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="finished" from="Video/AspectRatioContainer/VideoStreamPlayer" to="Video/AspectRatioContainer/VideoStreamPlayer" method="_on_finished"]

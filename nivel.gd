@@ -24,9 +24,11 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_R):
+		enemigoAtacante1.reiniciar()
 		game_over.visible = false
 		win.visible = false
-		enemigoAtacante1.reiniciar()
+		barra_oxigeno.reiniciar()
+		jugador.reiniciar()
 	if event is InputEventKey:
 		if event.is_pressed() and event.keycode == KEY_M:
 			toogleBackground()
@@ -56,6 +58,7 @@ func on_player_win() -> void:
 	win.visible = true
 	#get_tree().paused = true
 	enemigoAtacante1.frenar()
+	jugador.ganar()
 	pause_all_nodes()
 
 func pause_all_nodes():
