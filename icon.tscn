@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://b1rqqic2y67q4"]
+[gd_scene load_steps=97 format=3 uid="uid://b1rqqic2y67q4"]
 
 [ext_resource type="Script" path="res://nivel.gd" id="1_20c3v"]
 [ext_resource type="Script" path="res://jugador.gd" id="2_2fefo"]
@@ -316,7 +316,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2p1ct"]
-size = Vector2(1445.76, 257.709)
+size = Vector2(1250.27, 240.267)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6l8od"]
 animations = [{
@@ -363,6 +363,15 @@ size = Vector2(267, 217)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tke7l"]
 size = Vector2(275, 257)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dpr1s"]
+size = Vector2(2046, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3cio"]
+size = Vector2(20, 1288)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdpk0"]
+size = Vector2(352, 20)
 
 [node name="Nivel" type="Node2D"]
 position = Vector2(-7, 7)
@@ -453,7 +462,7 @@ position = Vector2(-23.0402, 16.5833)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemigoAtacante1/EnemigoArea"]
-position = Vector2(183.04, -43.25)
+position = Vector2(280.782, -34.5289)
 shape = SubResource("RectangleShape2D_2p1ct")
 
 [node name="PlantaCoral" type="Sprite2D" parent="."]
@@ -470,7 +479,7 @@ autoplay = "default"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Roca"]
 
 [node name="Nave" type="AnimatedSprite2D" parent="."]
-position = Vector2(2168, 470)
+position = Vector2(2160, 440)
 sprite_frames = SubResource("SpriteFrames_6l8od")
 autoplay = "default"
 frame_progress = 0.150885
@@ -628,7 +637,7 @@ debug_color = Color(0.8776, 0.000394672, 0.829699, 0.42)
 [node name="AreaRocas4" type="Area2D" parent="Node2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/AreaRocas4"]
-position = Vector2(2150.5, 807.5)
+position = Vector2(2158, 832)
 shape = SubResource("RectangleShape2D_tke7l")
 debug_color = Color(0.879548, 0.000372917, 0.824331, 0.42)
 
@@ -662,6 +671,25 @@ Presiona R para reiniciar el juego"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1329, -64)
+shape = SubResource("RectangleShape2D_dpr1s")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(2, -88)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, 724)
+shape = SubResource("RectangleShape2D_y3cio")
+
+[node name="Area2D3" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(-44, -28)
+shape = SubResource("RectangleShape2D_bdpk0")
+
 [connection signal="area_entered" from="Burbuja/BurbujaArea" to="Burbuja" method="_on_burbuja_area_area_entered"]
 [connection signal="area_entered" from="Burbuja/BurbujaArea" to="Node2D" method="_on_burbuja_area_area_entered"]
 [connection signal="area_entered" from="Pez verde/EnemigoArea" to="Burbuja" method="_on_enemigo_area_area_entered"]
@@ -672,3 +700,6 @@ vertical_alignment = 1
 [connection signal="area_entered" from="Node2D/AreaRocas2" to="Burbuja" method="_on_area_rocas_2_area_entered"]
 [connection signal="area_entered" from="Node2D/AreaRocas3" to="Burbuja" method="_on_area_rocas_3_area_entered"]
 [connection signal="area_entered" from="Node2D/AreaRocas4" to="Burbuja" method="_on_area_rocas_4_area_entered"]
+[connection signal="area_entered" from="Area2D" to="Burbuja" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D2" to="Burbuja" method="_on_area_2d_2_area_entered"]
+[connection signal="area_entered" from="Area2D3" to="Burbuja" method="_on_area_2d_3_area_entered"]

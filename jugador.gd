@@ -158,3 +158,30 @@ func _on_area_nave_area_entered(area: Area2D) -> void:
 	barra_oxigeno.pauseOxigeno()
 	emit_signal("player_win")
 	await get_tree().create_timer(0.2).timeout
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print("Enemigo entró en el area: ", area)
+	#await get_tree().create_timer(0.2).timeout
+	#queue_free()  # Eliminar la burbuja
+	print('muerto')
+	barra_oxigeno.SetOxigenoACero()
+	emit_signal("player_died")
+
+
+func _on_area_2d_2_area_entered(area: Area2D) -> void:
+	print("Enemigo entró en el area: ", area)
+	#await get_tree().create_timer(0.2).timeout
+	#queue_free()  # Eliminar la burbuja
+	print('muerto')
+	barra_oxigeno.SetOxigenoACero()
+	emit_signal("player_died")
+
+
+func _on_area_2d_3_area_entered(area: Area2D) -> void:
+	print("Enemigo entró en el area: ", area)
+	#await get_tree().create_timer(0.2).timeout
+	#queue_free()  # Eliminar la burbuja
+	print('muerto')
+	barra_oxigeno.SetOxigenoACero()
+	emit_signal("player_died")
