@@ -52,4 +52,13 @@ label_settings = SubResource("LabelSettings_2h76l")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Button" type="Button" parent="Video"]
+offset_left = 11.0
+offset_top = 7.0
+offset_right = 209.0
+offset_bottom = 185.0
+text = "Saltear
+Cinemática"
+
 [connection signal="finished" from="Video/AspectRatioContainer/VideoStreamPlayer" to="Video/AspectRatioContainer/VideoStreamPlayer" method="_on_finished"]
+[connection signal="pressed" from="Video/Button" to="Video/AspectRatioContainer/VideoStreamPlayer" method="_on_button_pressed"]

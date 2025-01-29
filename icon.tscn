@@ -509,7 +509,6 @@ value = 100.0
 script = ExtResource("4_vq5pf")
 
 [node name="GameOverBackground" type="Control" parent="."]
-visible = false
 z_index = 1000
 layout_mode = 3
 anchors_preset = 0
@@ -537,6 +536,14 @@ text = "    GAME OVER  =(
 Presiona R para reiniciar el juego"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="GameOverBackground"]
+layout_mode = 0
+offset_left = 1076.0
+offset_top = 954.0
+offset_right = 1280.0
+offset_bottom = 1048.0
+text = "Reiniciar Juego"
 
 [node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("72_xfuqq")
@@ -671,6 +678,14 @@ Presiona R para reiniciar el juego"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Button" type="Button" parent="WinBackground"]
+layout_mode = 0
+offset_left = 1056.0
+offset_top = 966.0
+offset_right = 1220.0
+offset_bottom = 1076.0
+text = "Reiniciar Juego"
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -696,10 +711,12 @@ shape = SubResource("RectangleShape2D_bdpk0")
 [connection signal="area_entered" from="Pez verde/Pez verde/EnemigoArea" to="Burbuja" method="_on_enemigo_area_area_entered"]
 [connection signal="area_entered" from="EnemigoAtacante1/EnemigoArea" to="Burbuja" method="_on_enemigo_area_area_entered"]
 [connection signal="area_entered" from="Nave/AreaNave" to="Burbuja" method="_on_area_nave_area_entered"]
+[connection signal="pressed" from="GameOverBackground/Button" to="." method="_on_button_pressed"]
 [connection signal="area_entered" from="Node2D/AreaRocas" to="Burbuja" method="_on_area_rocas_area_entered"]
 [connection signal="area_entered" from="Node2D/AreaRocas2" to="Burbuja" method="_on_area_rocas_2_area_entered"]
 [connection signal="area_entered" from="Node2D/AreaRocas3" to="Burbuja" method="_on_area_rocas_3_area_entered"]
 [connection signal="area_entered" from="Node2D/AreaRocas4" to="Burbuja" method="_on_area_rocas_4_area_entered"]
+[connection signal="pressed" from="WinBackground/Button" to="." method="_on_button_pressed"]
 [connection signal="area_entered" from="Area2D" to="Burbuja" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Area2D2" to="Burbuja" method="_on_area_2d_2_area_entered"]
 [connection signal="area_entered" from="Area2D3" to="Burbuja" method="_on_area_2d_3_area_entered"]
