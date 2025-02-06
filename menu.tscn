@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm7lwtpancxrf"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_q8yk7"]
+[ext_resource type="Texture2D" uid="uid://0e485i1o2mli" path="res://sprites/fondo nivel medio camino.png" id="2_vf6w3"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q8yk7")
+
+[node name="jugar" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.511
+anchor_top = 0.364
+anchor_right = 0.511
+anchor_bottom = 0.364
+offset_left = -85.6721
+offset_top = -29.872
+offset_right = 86.3279
+offset_bottom = 30.128
+text = "Jugar"
+
+[node name="salir" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.511
+anchor_top = 0.485
+anchor_right = 0.511
+anchor_bottom = 0.485
+offset_left = -85.6721
+offset_top = -29.28
+offset_right = 85.3279
+offset_bottom = 28.72
+grow_horizontal = 2
+text = "Salir"
+
+[node name="fondo" type="Sprite2D" parent="."]
+z_index = -4096
+position = Vector2(574, 324.5)
+scale = Vector2(1.58152, 0.455758)
+texture = ExtResource("2_vf6w3")
+
+[connection signal="pressed" from="jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="salir" to="." method="_on_salir_pressed"]

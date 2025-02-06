@@ -10,12 +10,14 @@ extends Node2D
 @onready var win_label = get_node("/root/Nivel/WinBackground/Label")
 @onready var enemigoAtacante1 = get_node('EnemigoAtacante1')
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	game_over.visible = false
 	win.visible = false
 	jugador.connect("player_died", Callable(self, "on_player_died"))
 	jugador.connect("player_win", Callable(self, "on_player_win"))
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -67,7 +69,6 @@ func on_player_win() -> void:
 func pause_all_nodes():
 	for child in root.get_children():
 		child.set_process(false)
-
 
 func _on_button_pressed() -> void:
 	reiniciarJuego()

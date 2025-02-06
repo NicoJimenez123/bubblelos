@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bomuyq5bqwhvp"]
+[gd_scene load_steps=6 format=3 uid="uid://bomuyq5bqwhvp"]
 
 [ext_resource type="VideoStream" path="res://Videos/Scape Bubble intro.ogv" id="1_bti83"]
 [ext_resource type="Script" path="res://video_stream_player.gd" id="2_mkol3"]
+[ext_resource type="Texture2D" uid="uid://0e485i1o2mli" path="res://sprites/fondo nivel medio camino.png" id="3_o14cp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1ovko"]
 font_size = 48
@@ -59,6 +60,12 @@ offset_right = 209.0
 offset_bottom = 185.0
 text = "Saltear
 Cinemática"
+
+[node name="fondo" type="Sprite2D" parent="Video"]
+z_index = -4096
+position = Vector2(1153, 653)
+scale = Vector2(3.136, 0.913)
+texture = ExtResource("3_o14cp")
 
 [connection signal="finished" from="Video/AspectRatioContainer/VideoStreamPlayer" to="Video/AspectRatioContainer/VideoStreamPlayer" method="_on_finished"]
 [connection signal="pressed" from="Video/Button" to="Video/AspectRatioContainer/VideoStreamPlayer" method="_on_button_pressed"]
